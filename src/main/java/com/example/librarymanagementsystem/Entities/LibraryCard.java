@@ -1,7 +1,10 @@
 package com.example.librarymanagementsystem.Entities;
 
 import com.example.librarymanagementsystem.Enums.CardStatus;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -20,9 +23,12 @@ public class LibraryCard {
     @Id
     private Integer cardId;
 
+
+    //This is an annotation for mysql to understand custom datatype
+    // and store it as a string format inside the DB.
+    @Enumerated(value = EnumType.STRING)
     private CardStatus cardStatus;
 
     private int noOfBooksIssued;
-
 
 }
