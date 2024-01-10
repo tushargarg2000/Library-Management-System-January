@@ -6,6 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -30,5 +32,11 @@ public class LibraryCard {
     private CardStatus cardStatus;
 
     private int noOfBooksIssued;
+
+    //Library card should have the foreign key column
+    //bcz this is the child class
+    @JoinColumn
+    @OneToOne
+    private Student student;
 
 }
