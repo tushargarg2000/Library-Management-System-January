@@ -1,14 +1,7 @@
 package com.example.librarymanagementsystem.Entities;
 
 import com.example.librarymanagementsystem.Enums.CardStatus;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,6 +16,7 @@ import lombok.Setter;
 public class LibraryCard {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer cardId;
 
 
