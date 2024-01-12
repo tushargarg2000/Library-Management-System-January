@@ -33,4 +33,5 @@ public class LibraryCard {
     @OneToOne
     private Student student;
 
+
 }
