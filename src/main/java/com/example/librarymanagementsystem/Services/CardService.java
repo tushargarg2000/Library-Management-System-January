@@ -24,7 +24,7 @@ public class CardService {
     public String getFreshCard(){
 
         LibraryCard newCard = new LibraryCard();
-        //newCard.setCardStatus(CardStatus.NEW);
+        newCard.setCardStatus(CardStatus.NEW);
         newCard.setNoOfBooksIssued(0);
 
        LibraryCard savedCard =  cardRepository.save(newCard);
@@ -59,13 +59,7 @@ public class CardService {
 
         cardRepository.save(libraryCard);
 
-
-
-
-
-
-
-
+        return "Card with cardId"+cardId+"and student with studentId "+studentId+" are associated";
     }
 
 }

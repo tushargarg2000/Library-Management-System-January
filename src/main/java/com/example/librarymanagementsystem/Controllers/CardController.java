@@ -30,12 +30,11 @@ public class CardController {
                                                       @RequestParam("cardId")Integer cardId){
 
         try{
-
+            String result = cardService.associateCardAndStudent(studentId,cardId);
+            return new ResponseEntity(result,HttpStatus.OK);
         }catch (Exception e){
             return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
-
-
     }
 
 
