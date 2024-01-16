@@ -6,6 +6,7 @@ import com.example.librarymanagementsystem.Entities.Student;
 import com.example.librarymanagementsystem.Enums.CardStatus;
 import com.example.librarymanagementsystem.Repository.CardRepository;
 import com.example.librarymanagementsystem.Repository.StudentRepository;
+import com.example.librarymanagementsystem.RequestDtos.AssociateCardStudentRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,8 +34,10 @@ public class CardService {
 
     }
 
-    public String associateCardAndStudent(Integer studentId,Integer cardId) throws Exception{
+    public String associateCardAndStudent(AssociateCardStudentRequest associateCardStudentRequest) throws Exception{
 
+        Integer cardId = associateCardStudentRequest.getCardId();
+        Integer studentId = associateCardStudentRequest.getStudentId();
 
         //Short code is to get the entitis from the ids.
         Optional<LibraryCard> optionalLibraryCard = cardRepository.findById(cardId);

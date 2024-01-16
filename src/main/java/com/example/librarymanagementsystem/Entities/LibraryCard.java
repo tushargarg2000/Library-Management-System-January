@@ -27,11 +27,12 @@ public class LibraryCard {
 
     private int noOfBooksIssued;
 
+    private Integer noOfBooksIssued1;
+
     //Library card should have the foreign key column
     //bcz this is the child class
     @JoinColumn
     @OneToOne
     private Student student;
-
 
 }

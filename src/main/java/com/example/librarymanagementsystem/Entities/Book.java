@@ -37,5 +37,11 @@ public class Book {
     @ManyToOne
     private Author author;
 
-
+    public Book(String bookName, Genre bookGenre, int noOfPages, int price, Date publishDate) {
+        this.bookName = bookName;
+        this.bookGenre = bookGenre;
+        this.noOfPages = noOfPages;
+        this.price = price;
+        this.publishDate = publishDate;
+    }
 }

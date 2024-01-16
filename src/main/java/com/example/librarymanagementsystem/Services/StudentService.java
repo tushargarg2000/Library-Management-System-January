@@ -2,6 +2,7 @@ package com.example.librarymanagementsystem.Services;
 
 import com.example.librarymanagementsystem.Entities.Student;
 import com.example.librarymanagementsystem.Repository.StudentRepository;
+import com.example.librarymanagementsystem.RequestDtos.ModifyPhnNoRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,6 +32,18 @@ public class StudentService {
         Student student = optionalStudent.get();
 
         return student;
+    }
+
+    public String modifyPhnNo(ModifyPhnNoRequest modifyPhnNoRequest){
+
+        Integer studentId = modifyPhnNoRequest.getStudentId();
+        String newPhnNo = modifyPhnNoRequest.getNewPhnNo();
+
+        Student student = studentRepository.findById(studentId).get();
+        student.setPhoneNo(newPhnNo);
+        studentRepository.save(student);
+
+        return "Phone No. has been modified";
     }
 
 }
