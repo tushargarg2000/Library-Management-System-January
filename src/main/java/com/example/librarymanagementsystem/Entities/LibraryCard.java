@@ -7,6 +7,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "library_card")
 @Getter
@@ -14,6 +17,8 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class LibraryCard {
+
+    public static final Integer MAX_NO_OF_ALLOWED_BOOKS = 3;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,12 +32,14 @@ public class LibraryCard {
 
     private int noOfBooksIssued;
 
-    private Integer noOfBooksIssued1;
-
     //Library card should have the foreign key column
     //bcz this is the child class
     @JoinColumn
     @OneToOne
     private Student student;
+
+
+    @OneToMany(mappedBy = "libraryCard",cascade = CascadeType.ALL)
+    public List<Transaction> transactionList = new ArrayList<>();
 
 }
